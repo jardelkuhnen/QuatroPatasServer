@@ -53,7 +53,9 @@ public class AnimalDaoImpl implements AnimalDao {
 
 		Query q = em.createQuery("from Animal");
 
-		return (ArrayList<Animal>) q.getResultList();
+		return ((ArrayList<Animal>) q.getResultList());
+
+	
 	}
 
 }
