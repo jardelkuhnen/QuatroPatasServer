@@ -43,7 +43,7 @@ public class AnimalDaoImpl implements AnimalDao {
 	@Override
 	public Animal edit(Animal animal) {
 
-		em.flush();
+		em.merge(animal);
 
 		return animal;
 	}
@@ -53,9 +53,10 @@ public class AnimalDaoImpl implements AnimalDao {
 
 		Query q = em.createQuery("from Animal");
 
-		return ((ArrayList<Animal>) q.getResultList());
+		ArrayList<Animal> animais = (ArrayList<Animal>) q.getResultList();
 
-	
+		return animais;
+
 	}
 
 }

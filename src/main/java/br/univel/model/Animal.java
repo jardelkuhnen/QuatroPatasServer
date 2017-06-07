@@ -17,25 +17,26 @@ public class Animal implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", updatable = false, nullable = false)
-	private Long id;
+	private int id;
+
 	@Version
 	@Column(name = "version")
 	private int version;
 
 	@Column(length = 50)
-	private String Nome;
+	private String nome;
 
 	@Column(length = 50)
-	private String Especie;
+	private String especie;
 
 	@Column(length = 50)
-	private String Proprietario;
+	private String proprietario;
 
-	public Long getId() {
+	public int getId() {
 		return this.id;
 	}
 
-	public void setId(final Long id) {
+	public void setId(final int id) {
 		this.id = id;
 	}
 
@@ -48,63 +49,48 @@ public class Animal implements Serializable {
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (!(obj instanceof Animal)) {
-			return false;
-		}
-		Animal other = (Animal) obj;
-		if (id != null) {
-			if (!id.equals(other.id)) {
-				return false;
-			}
-		}
-		return true;
+	public boolean equals(Object arg0) {
+		return super.equals(arg0);
 	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
+		return super.hashCode();
 	}
 
 	public String getNome() {
-		return Nome;
+		return nome;
 	}
 
 	public void setNome(String Nome) {
-		this.Nome = Nome;
+		this.nome = Nome;
 	}
 
 	public String getEspecie() {
-		return Especie;
+		return especie;
 	}
 
 	public void setEspecie(String Especie) {
-		this.Especie = Especie;
+		this.especie = Especie;
 	}
 
 	public String getProprietario() {
-		return Proprietario;
+		return proprietario;
 	}
 
 	public void setProprietario(String Proprietario) {
-		this.Proprietario = Proprietario;
+		this.proprietario = Proprietario;
 	}
 
 	@Override
 	public String toString() {
 		String result = getClass().getSimpleName() + " ";
-		if (Nome != null && !Nome.trim().isEmpty())
-			result += "Nome: " + Nome;
-		if (Especie != null && !Especie.trim().isEmpty())
-			result += ", Especie: " + Especie;
-		if (Proprietario != null && !Proprietario.trim().isEmpty())
-			result += ", Proprietario: " + Proprietario;
+		if (nome != null && !nome.trim().isEmpty())
+			result += "Nome: " + nome;
+		if (especie != null && !especie.trim().isEmpty())
+			result += ", Especie: " + especie;
+		if (proprietario != null && !proprietario.trim().isEmpty())
+			result += ", Proprietario: " + proprietario;
 		return result;
 	}
 }
