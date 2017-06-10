@@ -36,7 +36,10 @@ public class AnimalDaoImpl implements AnimalDao {
 	@Override
 	public void delete(Animal animal) {
 
-		em.remove(animal);
+		
+		Animal an = em.find(Animal.class, animal.getId());
+		
+		em.remove(an);
 
 	}
 
